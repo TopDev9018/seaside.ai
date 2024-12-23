@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const { connectDb } = require("./src/config/database")
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 dotenv.config();
 
@@ -9,6 +10,7 @@ dotenv.config();
 const auth = require("./src/routes/auth.routes");
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
